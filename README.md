@@ -1,1 +1,6 @@
-# apz-pzpi-22-7-serhieienkova-mariia
+# apz-pzpi-22-7-serhieienkova-mariia  
+ПЗПІ-22-7  
+Сергєєнкова Марія  
+Тема доповіді ПЗ1   
+Тема доповіді ПЗ2   
+Тема проєкту на усі ЛР   
