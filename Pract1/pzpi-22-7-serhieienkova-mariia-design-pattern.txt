@@ -158,107 +158,106 @@
 
 7	func (p *Patient) PerformDailyCare() {
 8	if p.needsCheckup {
-i.	// перевірка стану
-9	}
-10	if p.needsMedication {
-i.	// нагадування про ліки
-11	}
-12	}
+9	// перевірка стану
+10	}
+11	if p.needsMedication {
+12	// нагадування про ліки
+13	}
+14	}
 
-13	// Рішення проблеми через Visitor
-14	type Visitor interface {
-15	VisitPatient(p *Patient)
-16	}
+15	// Рішення проблеми через Visitor
+16	type Visitor interface {
+17	VisitPatient(p *Patient)
+18	}
 
-17	type Patient struct {
-18	name string
-19	needsCheckup bool
-20	needsMedication bool
-21	}
+19	type Patient struct {
+20	name string
+21	needsCheckup bool
+22	needsMedication bool
+23	}
 
-22	func (p *Patient) Accept(v Visitor) {
-23	v.VisitPatient(p)
-24	}
+24	func (p *Patient) Accept(v Visitor) {
+25	v.VisitPatient(p)
+26	}
 
-25	// Наведення другого прикладу без патерну Visitor
-26	type ElderlyPatient struct {
-27	Name string
-28	Age  int
-29	}
+27	// Наведення другого прикладу без патерну Visitor
+28	type ElderlyPatient struct {
+29	Name string
+30	Age  int
+31	}
 
-30	type DisabledPatient struct {
-31	Name string
-32	Disability string
-33	}
+32	type DisabledPatient struct {
+33	Name string
+34	Disability string
+35	}
 
-34	func provideCareForElderly(p ElderlyPatient) {
-35	fmt.Printf("Providing elderly care to %s (age %d)\n", p.Name, p.Age)
-36	}
+36	func provideCareForElderly(p ElderlyPatient) {
+37	fmt.Printf("Providing elderly care to %s (age %d)\n", p.Name, p.Age)
+38	}
 
-37	func provideCareForDisabled(p DisabledPatient) {
-38	fmt.Printf("Providing disability care to %s (%s)\n", p.Name, p.Disability)
-39	}
+39	func provideCareForDisabled(p DisabledPatient) {
+40	fmt.Printf("Providing disability care to %s (%s)\n", p.Name, p.Disability)
+41	}
 
-40	func main() {
-41	el := ElderlyPatient{"Maria", 80}
-42	ds := DisabledPatient{"Ivan", "Mobility impairment"}
+42	func main() {
+43	el := ElderlyPatient{"Maria", 80}
+44	ds := DisabledPatient{"Ivan", "Mobility impairment"}
 
-43	provideCareForElderly(el)
-44	provideCareForDisabled(ds)
-45	}
+45	provideCareForElderly(el)
+46	provideCareForDisabled(ds)
+47	}
 
-46	//Впровадження Visitor
-47	// Visitor
-48	type CareVisitor interface {
-49	VisitElderly(*ElderlyPatient)
-50	VisitDisabled(*DisabledPatient)
-51	}
+48	//Впровадження Visitor
+49	// Visitor
+50	type CareVisitor interface {
+51	VisitElderly(*ElderlyPatient)
+52	VisitDisabled(*DisabledPatient)
+53	}
 
-52	// Element
-53	type Patient interface {
-54	Accept(CareVisitor)
-55	}
+54	// Element
+55	type Patient interface {
+56	Accept(CareVisitor)
+57	}
 
-56	// ConcreteElement 1
-57	type ElderlyPatient struct {
-58	Name string
-59	Age  int
-60	}
+58	// ConcreteElement 1
+59	type ElderlyPatient struct {
+60	Name string
+61	Age  int
+62	}
 
-61	func (p *ElderlyPatient) Accept(v CareVisitor) {
-62	v.VisitElderly(p)
-63	}
+63	func (p *ElderlyPatient) Accept(v CareVisitor) {
+64	v.VisitElderly(p)
+65	}
 
-64	// ConcreteElement 2
-65	type DisabledPatient struct {
-66	Name       string
-67	Disability string
-68	}
+66	// ConcreteElement 2
+67	type DisabledPatient struct {
+68	Name       string
+69	Disability string
+70	}
 
-69	func (p *DisabledPatient) Accept(v CareVisitor) {
-70	v.VisitDisabled(p)
-71	}
+71	func (p *DisabledPatient) Accept(v CareVisitor) {
+72	v.VisitDisabled(p)
+73	}
 
-72	// ConcreteVisitor
-73	type DailyCare struct{}
+74	// ConcreteVisitor
+75	type DailyCare struct{}
 
-74	func (c *DailyCare) VisitElderly(p *ElderlyPatient) {
-75	fmt.Printf("Daily care for elderly: %s, %d y.o.\n", p.Name, p.Age)
-76	}
+76	func (c *DailyCare) VisitElderly(p *ElderlyPatient) {
+77	fmt.Printf("Daily care for elderly: %s, %d y.o.\n", p.Name, p.Age)
+78	}
 
-77	func (c *DailyCare) VisitDisabled(p *DisabledPatient) {
-78	fmt.Printf("Daily care for disabled: %s (%s)\n", p.Name, p.Disability)
-79	}
+79	func (c *DailyCare) VisitDisabled(p *DisabledPatient) {
+80	fmt.Printf("Daily care for disabled: %s (%s)\n", p.Name, p.Disability)
+81	}
 
-80	func main() {
-81	patients := []Patient{
-i.	&ElderlyPatient{Name: "Maria", Age: 80},
-ii.	&DisabledPatient{Name: "Ivan", Disability: "Mobility impairment"},
-82	}
-
-83	visitor := &DailyCare{}
-84	for _, p := range patients {
-i.	p.Accept(visitor)
-85	}
+82	func main() {
+83	patients := []Patient{
+84	&ElderlyPatient{Name: "Maria", Age: 80},
+85	&DisabledPatient{Name: "Ivan", Disability: "Mobility impairment"},
 86	}
 
+87	visitor := &DailyCare{}
+88	for _, p := range patients {
+89	p.Accept(visitor)
+90	}
+91	}
