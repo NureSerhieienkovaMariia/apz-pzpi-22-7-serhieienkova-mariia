@@ -118,7 +118,6 @@ const loadTreatmentPlanPatients = async (visitsData) => {
           const patientId = data.patient_id
           map[treatmentPlanId] = patientId
 
-          // Тепер отримуємо patient info:
           if (!patientMap[patientId]) {
             const resPatient = await fetch(`http://localhost:8087/doctor/api/patients/${patientId}`, {
               method: 'GET',
