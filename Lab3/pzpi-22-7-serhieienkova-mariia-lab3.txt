@@ -1,1 +1,352 @@
+МІНІСТЕРСТВО ОСВІТИ І НАУКИ УКРАЇНИ ХАРКІВСЬКИЙ НАЦІОНАЛЬНИЙ УНІВЕРСИТЕТ РАДІОЕЛЕКТРОНІКИ
 
+
+Кафедра програмної інженерії
+
+
+
+
+ЗВІТ
+З лабораторної роботи №3
+З дисципліни «Архітектура програмного забезпечення» 
+на тему: «Розробка програмної архітектури та створення і відлагодження програмного коду веб клієнта програмної системи»
+
+
+
+
+
+
+
+
+Виконала:   
+ст. гр. ПЗПІ-22-7                                                           
+Сергєєнкова Марія Сергіївна	  Перевірив:             
+  ст.викладач кафедри. ПІ
+  Сокорчук І.П.
+
+
+
+
+
+
+Харків 2025
+ 
+1	ІСТОРІЯ ЗМІН
+Зміни в документі нотуються до таблиці 1.1. 	 
+ Таблиця 1.1 – Історія змін 
+№	Дата змін	Версія звіту	Опис змін та виправлень
+1	03.06.2025	0.1	Створено розділ «Завдання»
+2	03.06.2025	0.1	Створено розділ «Опис виконаної роботи»
+3	03.06.2025	0.1	Додано розділ «Висновки»
+4	14.06.2025	0.2	Додано додаток А з посиланням на відеозапис доповіді
+5	14.06.2025	0.2	Додано додаток Б з графічними матеріалами
+6	14.06.2025	0.2	Додано додаток В з програмним кодом
+
+2	ЗАВДАННЯ
+Метою даної лабораторної роботи є розробка клієнтської / front-end частини програмної системи та проведення функціонального тестування веб-клієнта.
+
+
+3	ОПИС ВИКОНАНОЇ РОБОТИ
+Тема проєкту: Програмна система для догляду за літніми людьми. 
+У межах лабораторної роботи було реалізовано клієнтську частину вебзастосунку системи догляду за літніми людьми, яка орієнтована на роль лікаря. Основна мета — забезпечити зручний, функціональний та локалізований інтерфейс для роботи з медичними даними пацієнтів.
+Розробка здійснювалася з використанням Vue.js, що дозволило створити компонентну структуру застосунку, налаштувати маршрутизацію між сторінками, реалізувати багатомовність (українська та англійська), а також організувати обмін даними з сервером через REST API.
+Основні реалізовані сторінки:
+-	авторизація та реєстрація;
+-	список пацієнтів;
+-	детальна інформація про пацієнта (діагнози, плани лікування, ліки, візити, родичі);
+-	сповіщення про критичні показники здоров’я;
+-	управління записами: діагнози, візити, ліки, плани лікування.
+Усі сторінки динамічно отримують дані із серверної частини. Було реалізовано повноцінну взаємодію з API — перегляд, створення, редагування та видалення записів. Для захисту доступу використано JWT-аутентифікацію, збереження токена в локальному сховищі, перевірку авторизації на кожному запиті.
+Окрему увагу приділено зручності навігації, адаптивності та читабельності інтерфейсу. Також впроваджено локалізацію інтерфейсу через vue-i18n, з можливістю перемикання мови в UI без перезавантаження.
+Відеозапис роботи системи наведено в додатку А. ER-діаграма представлена в додатку Б на рисунку Б.1, структура бази даних – на рисунку Б.2, UML-діаграма прецедентів зображена на рисунку Б.3, UML UML-діаграма пакетів – на рисунку Б.4, UML-діаграма станів – на рисунку Б.5. У процесі реалізації здійснено математичну обробку прикладних даних (див. додаток В, фрагмент В.1). Логіка адміністрування, представлена у фрагменті В.2. Також реалізовано механізм резервного копіювання даних користувачів (див. додаток В, фрагмент В.3). 
+
+4	ВИСНОВКИ
+У ході виконання лабораторної роботи було створено клієнтську частину вебзастосунку для системи догляду за літніми людьми та створено відеозвіт доповіді. Інтерфейс орієнтований на роль лікаря, який має можливість працювати з пацієнтами, переглядати та додавати діагнози, плани лікування, ліки, візити та отримувати сповіщення про критичні стани. Фронтенд реалізовано за допомогою Vue.js, з використанням vue-router для маршрутизації та vue-i18n для підтримки локалізації. Забезпечено авторизацію через JWT, що обмежує доступ до даних.
+ 
+ДОДАТОК А
+Відеозапис
+
+Відеозапис презентації результатів лабораторної роботи: https://www.youtube.com/watch?v=OQ3mVFRZ12U  
+
+Хронологічний опис відеозапису:
+00:00 - Вступ
+00:19 - Мета і опис завдання лабораторної роботи 
+01:43 - Авторизація в системі під роллю «Лікар»
+02:05 - Перегляд інформації про всіх зареєстрованих пацієнтів 
+03:04 - Перегляд детальної інформації про конкретного пацієнта
+04:29 - Закріплення нового діагнозу за конкретним пацієнтом, створення плану лікування, візитів та призначення ліків
+07:48 - Локалізація системи
+08:03 - Перегляд ліків та діагнозів, редагування та видалення
+09:43 - Перегляд запланованих візитів
+10:35 - Перегляд сповіщень про критичні стани пацієнтів лікара
+11:15 - Перевірка в базі даних попередніх змін
+11:57 - Висновки  
+ДОДАТОК Б
+Графічні матеріали
+
+ 
+Рисунок Б.1 – ER-діаграма даних
+
+
+ Рисунок Б.2 — Структура бази даних
+
+ 
+Рисунок Б.3 — UML-діаграма прецедентів
+
+ 
+Рисунок Б.4 — UML діаграма пакетів
+
+ 
+Рисунок Б.5 — UML-діаграма станів
+
+ 
+ДОДАТОК В
+Програмний код
+
+В.1 Математична обробка прикладних даних. 
+
+GitHub репозиторій: https://github.com/NureSerhieienkovaMariia/apz-pzpi-22-7-serhieienkova-mariia/blob/main/Lab3/pzpi-22-7-serhieienkova-mariia-lab3-code/src/pages/PatientsFullInfoPage.vue 
+
+1	import { ref, onMounted } from 'vue'
+2	import { useRoute, useRouter } from 'vue-router'
+3	import { getDiagnoses, attachDiagnosisToPatient } from '../api/diagnoses'
+4	import { getRelatives, getRelativesByPatient, attachRelativeToPatient } from '../api/relatives'
+5	import { createTreatmentPlan, deleteTreatmentPlan } from '../api/treatmentplans'
+6	import { useUser } from '../composables/useUser'
+7	import {computed} from 'vue'
+8	
+9	const { user } = useUser()
+10	
+11	const newVisitFields = ref({})
+12	
+13	const getVisitFieldsForPlan = (planId) => {
+14	  if (!newVisitFields.value[planId]) {
+15	    newVisitFields.value[planId] = {
+16	      reason: '',
+17	      date: '',
+18	      notes: '',
+19	    }
+20	  }
+21	  return newVisitFields.value[planId]
+22	}
+23	
+24	// --- State для Prescription ---
+25	const newPrescriptionFields = ref({})
+26	
+27	const getPrescriptionFieldsForPlan = (planId) => {
+28	  if (!newPrescriptionFields.value[planId]) {
+29	    newPrescriptionFields.value[planId] = {
+30	      medicineId: '',
+31	      dosage: '',
+32	      freqType: 'at',
+33	      time: '',
+34	      hours: null,
+35	    }
+36	  }
+37	  return newPrescriptionFields.value[planId]
+38	}
+39	
+40	// --- Handle Create Visit ---
+41	const handleCreateVisit = async (treatmentPlanId) => {
+42	  const fields = newVisitFields.value[treatmentPlanId]
+43	
+44	  try {
+45	    const token = localStorage.getItem('accessToken')
+46	    await fetch('http://localhost:8087/doctor/api/visit/', {
+47	      method: 'POST',
+48	      headers: {
+49	        'Content-Type': 'application/json',
+50	        'Authorization': `Bearer ${token}`,
+51	      },
+52	      body: JSON.stringify({
+53	        treatment_plan_id: treatmentPlanId,
+54	        reason: fields.reason,
+55	        date: new Date(fields.date).toISOString(),
+56	        notes: fields.notes,
+57	      }),
+58	    })
+59	
+60	    await fetchPatientFullInfo()
+61	
+62	    newVisitFields.value[treatmentPlanId] = {
+63	      reason: '',
+64	      date: '',
+65	      notes: '',
+66	    }
+67	  } catch (err) {
+68	    console.error('Помилка створення Visit:', err)
+69	    alert('Помилка створення Visit: ' + err.message)
+70	  }
+71	}
+72	
+73	// --- Handle Create Prescription ---
+74	const handleCreatePrescription = async (treatmentPlanId) => {
+75	  const fields = newPrescriptionFields.value[treatmentPlanId]
+76	
+77	  try {
+78	    const token = localStorage.getItem('accessToken')
+79	
+80	    let frequency = ''
+81	    if (fields.freqType === 'at') {
+82	      if (!fields.time) {
+83	        alert('Будь ласка, вкажіть час!')
+84	        return
+85	      }
+86	      frequency = `at ${fields.time}`
+87	    } else {
+88	      if (!fields.hours || fields.hours <= 0) {
+89	        alert('Будь ласка, вкажіть кількість годин!')
+90	        return
+91	      }
+92	      frequency = `every ${fields.hours} hour(s)`
+93	    }
+94	
+95	    await fetch('http://localhost:8087/doctor/api/prescription/', {
+96	      method: 'POST',
+97	      headers: {
+98	        'Content-Type': 'application/json',
+99	        'Authorization': `Bearer ${token}`,
+100	      },
+101	      body: JSON.stringify({
+102	        treatment_plan_id: treatmentPlanId,
+103	        medicine_id: Number(fields.medicineId),
+104	        dosage: fields.dosage,
+105	        frequency: frequency,
+106	      }),
+107	    })
+108	
+109	    await fetchPatientFullInfo()
+110	
+111	    newPrescriptionFields.value[treatmentPlanId] = {
+112	      medicineId: '',
+113	      dosage: '',
+114	      freqType: 'at',
+115	      time: '',
+116	      hours: null,
+117	    }
+118	  } catch (err) {
+119	    console.error('Помилка створення Prescription:', err)
+120	    alert('Помилка створення Prescription: ' + err.message)
+121	  }
+122	}
+
+В.2 Адміністрування бізнес-логіки системи
+
+GitHub репозиторій: https://github.com/NureSerhieienkovaMariia/apz-pzpi-22-7-serhieienkova-mariia/blob/main/Lab3/pzpi-22-7-serhieienkova-mariia-lab3-code/src/pages/AdminPage.vue 
+
+1	<template>
+2	  <div class="admin-container">
+3	    <h1>Admin Dashboard</h1>
+4	
+5	    <div class="admin-actions">
+6	      <button @click="backupDatabase">Backup Database</button>
+7	      <button @click="restoreDatabase">Restore Database</button>
+8	    </div>
+9	
+10	    <div class="admin-section">
+11	      <h2>Patients</h2>
+12	      <table>
+13	        <thead>
+14	          <tr>
+15	            <th>ID</th><th>Name</th><th>Email</th><th>Actions</th>
+16	          </tr>
+17	        </thead>
+18	        <tbody>
+19	          <tr v-for="patient in patients" :key="patient.id">
+20	            <td>{{ patient.id }}</td>
+21	            <td>{{ patient.name }} {{ patient.surname }}</td>
+22	            <td>{{ patient.email }}</td>
+23	            <td><button @click="deletePatient(patient.id)">Delete</button></td>
+24	          </tr>
+25	        </tbody>
+26	      </table>
+27	    </div>
+28	
+29	    <div class="admin-section">
+30	      <h2>Doctors</h2>
+31	      <table>
+32	        <thead>
+33	          <tr>
+34	            <th>ID</th><th>Name</th><th>Email</th><th>Actions</th>
+35	          </tr>
+36	        </thead>
+37	        <tbody>
+38	          <tr v-for="doctor in doctors" :key="doctor.id">
+39	            <td>{{ doctor.id }}</td>
+40	            <td>{{ doctor.name }} {{ doctor.surname }}</td>
+41	            <td>{{ doctor.email }}</td>
+42	            <td><button @click="deleteDoctor(doctor.id)">Delete</button></td>
+43	          </tr>
+44	        </tbody>
+45	      </table>
+46	    </div>
+47	  </div>
+48	</template>
+49	
+50	<script setup>
+51	import { ref, onMounted } from 'vue'
+52	import { getAllPatients, deletePatientById } from '@/api/patients'
+53	import { getAllDoctors, deleteDoctorById } from '@/api/doctors'
+54	
+55	const patients = ref([])
+56	const doctors = ref([])
+57	
+58	const loadData = async () => {
+59	  patients.value = await getAllPatients()
+60	  doctors.value = await getAllDoctors()
+61	}
+62	
+63	const deletePatient = async (id) => {
+64	  await deletePatientById(id)
+65	  await loadData()
+66	}
+67	
+68	const deleteDoctor = async (id) => {
+69	  await deleteDoctorById(id)
+70	  await loadData()
+71	}
+72	
+73	const backupDatabase = () => {
+74	  await backupDBInit(id)
+75	  await loadData()
+76	}
+77	
+78	const restoreDatabase = () => {
+79	  await restoreDB(id)
+80	  await loadData()
+81	}
+
+В.3 Резервне копіювання користувацьких даних
+
+GitHub репозиторій: https://github.com/NureSerhieienkovaMariia/apz-pzpi-22-7-serhieienkova-mariia/blob/main/Lab3/pzpi-22-7-serhieienkova-mariia-lab3-code/src/pages/AdminPage.vue 
+
+1	<template>
+2	  <div class="admin-container">
+3	    <h1>Admin Dashboard</h1>
+4	
+5	    <div class="admin-actions">
+6	      <button @click="backupDatabase">Backup Database</button>
+7	      <button @click="restoreDatabase">Restore Database</button>
+8	    </div>
+9	
+10	<script setup>
+11	import { ref, onMounted } from 'vue'
+12	import { getAllPatients, deletePatientById } from '@/api/patients'
+13	import { getAllDoctors, deleteDoctorById } from '@/api/doctors'
+14	
+15	const patients = ref([])
+16	const doctors = ref([])
+17	
+18	const loadData = async () => {
+19	  patients.value = await getAllPatients()
+20	  doctors.value = await getAllDoctors()
+21	}
+22	const backupDatabase = () => {
+23	  await backupDBInit(id)
+24	  await loadData()
+25	}
+26	
+27	const restoreDatabase = () => {
+28	  await restoreDB(id)
+29	  await loadData()
+30	}
