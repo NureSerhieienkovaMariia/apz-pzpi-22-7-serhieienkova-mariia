@@ -71,11 +71,13 @@ const deleteDoctor = async (id) => {
 }
 
 const backupDatabase = () => {
-  alert('Backup initiated (stubbed function)')
+  await backupDBInit(id)
+  await loadData()
 }
 
 const restoreDatabase = () => {
-  alert('Restore initiated (stubbed function)')
+  await restoreDB(id)
+  await loadData()
 }
 
 onMounted(loadData)
