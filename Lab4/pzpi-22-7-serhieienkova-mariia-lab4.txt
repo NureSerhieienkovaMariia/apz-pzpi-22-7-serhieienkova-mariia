@@ -1,1 +1,356 @@
+МІНІСТЕРСТВО ОСВІТИ І НАУКИ УКРАЇНИ ХАРКІВСЬКИЙ НАЦІОНАЛЬНИЙ УНІВЕРСИТЕТ РАДІОЕЛЕКТРОНІКИ
 
+
+Кафедра програмної інженерії
+
+
+
+
+ЗВІТ
+З лабораторної роботи №4
+З дисципліни «Архітектура програмного забезпечення» 
+на тему: «Розробка програмної архітектури та створення і відлагодження програмного коду мобільного пристрою для програмної
+системи»
+
+
+
+
+
+
+
+
+Виконала:   
+ст. гр. ПЗПІ-22-7                                                           
+Сергєєнкова Марія Сергіївна	  Перевірив:             
+  ст.викладач кафедри. ПІ
+  Сокорчук І.П.
+
+
+
+
+Харків 2025
+ 
+1	ІСТОРІЯ ЗМІН
+Зміни в документі нотуються до таблиці 1.1. 	 
+ Таблиця 1.1 – Історія змін 
+№	Дата змін	Версія звіту	Опис змін та виправлень
+1	04.06.2025	0.1	Створено розділ «Завдання»
+2	04.06.2025	0.1	Створено розділ «Опис виконаної роботи»
+3	04.06.2025	0.1	Додано розділ «Висновки»
+4	15.06.2025	0.2	Додано додаток А з посиланням на відеозапис доповіді
+5	15.06.2025	0.2	Додано додаток Б з графічними матеріалами
+6	15.06.2025	0.2	Додано додаток В з програмним кодом
+
+2	ЗАВДАННЯ
+Метою даної лабораторної роботи є розробка розробка мобільної частини програмної системи та проведення функціонального тестування мобільного додатку.
+
+3	ОПИС ВИКОНАНОЇ РОБОТИ
+Тема проєкту: Програмна система для догляду за літніми людьми. 
+У межах лабораторної роботи було розроблено мобільний застосунок програмної системи для догляду за літніми людьми. Додаток реалізовано мовою Kotlin з використанням Jetpack Compose як UI-фреймворку та бібліотеки Retrofit для взаємодії з серверною частиною через REST API.
+Мобільний застосунок орієнтований на дві ролі: пацієнта та родича. Реалізовано реєстрацію та авторизацію, персоналізовані екрани з відображенням медичних даних пацієнта, таких як діагнози, дата народження, стать, список нотаток і можливість створення нових нотаток. Родичі можуть переглядати інформацію про всіх закріплених пацієнтів, їхні діагнози та нотатки, якщо попередньо було надано доступ відповідним пацієнтом.
+Для збереження безпечної автентифікації застосовується обробка токенів. Обмеження доступу до функціональності здійснюється залежно від ролі користувача. Вся бізнес-логіка взаємодії з базою даних виконується через сервер, що гарантує цілісність даних. Було здійснено підтримку локалізації застосунку: на українську та англійську мови через ресурси strings.xml із динамічною зміною мови залежно від мови пристрою.
+Відеозапис роботи системи наведено в додатку А. ER-діаграма представлена в додатку Б на рисунку Б.1, структура бази даних – на рисунку Б.2, UML-діаграма прецедентів зображена на рисунку Б.3, UML-діаграма пакетів – на рисунку Б.4, UML-діаграма станів – на рисунку Б.5. У процесі реалізації здійснено математичну обробку прикладних даних (див. додаток В, фрагмент В.1). Логіка адміністрування, представлена у фрагменті В.2. Також реалізовано механізм резервного копіювання даних користувачів (див. додаток В, фрагмент В.3). 
+
+4	ВИСНОВКИ
+У результаті виконання лабораторної роботи було розроблено мобільний клієнт програмної системи для догляду за літніми людьми. Додаток надає можливість пацієнтам переглядати власні медичні дані, вести нотатки щодо самопочуття, а родичам — переглядати інформацію про закріплених пацієнтів. Реалізовано авторизацію, рольовий доступ, динамічне завантаження даних через REST API та обробку відповіді сервера.  Було забезпечено підтримку двомовного інтерфейсу (українська та англійська мови). Створений мобільний клієнт повністю відповідає заявленій архітектурі системи й успішно проходить тестування функціональності.
+
+ 
+ДОДАТОК А
+Відеозапис
+
+Відеозапис презентації результатів лабораторної роботи:  
+https://www.youtube.com/watch?v=AZ-y_G_ubqs 
+
+Хронологічний опис відеозапису:
+00:00 – Вступ
+00:17 – Призначення мобільної частини
+00:48 – Авторизація у системі як пацієнт
+01:29 – Можливості пацієнта у застосунку
+01:57 – Створення нотатки пацієнтом
+02:55 – Перевірка в базі даних створеної нотатки
+03:16 – Авторизація у системі як родич або доглядальник
+03:45 – Можливості родича або доглядальника у застосунку
+05:07 – Реєстрація нового пацієнта у системі
+06:29 – Перевірка в базі даних наявності створеного пацієнта
+06:58 – Реєстрація нового родича або доглядальника у системі
+08:05 – Перевірка в базі даних наявності створеного родича
+08:22 – Підтримка локалізації, зміна мови в додатку
+09:58 – Подяка за перегляд
+ 
+ДОДАТОК Б
+Графічні матеріали
+
+ 
+Рисунок Б.1 – ER-діаграма даних
+
+
+ Рисунок Б.2 — Структура бази даних
+
+ 
+Рисунок Б.3 — UML-діаграма прецедентів
+
+ 
+Рисунок Б.4 — UML-діаграма пакетів
+
+ 
+Рисунок Б.5 — UML-діаграма станів
+
+ 
+ДОДАТОК В
+Програмний код
+
+В.1 Математична обробка прикладних даних. 
+
+GitHub репозиторій: https://github.com/NureSerhieienkovaMariia/apz-pzpi-22-7-serhieienkova-mariia/blob/main/Lab4/pzpi-22-7-serhieienkova-mariia-lab4-code/app/src/main/java/com/example/clinic/ui/PatientDetailsScreen.kt 
+
+1	@OptIn(ExperimentalMaterial3Api::class)
+2	@Composable
+3	fun PatientDetailsScreen(
+4	    patientId: Int,
+5	    token: String,
+6	    onBack: () -> Unit
+7	) {
+8	    val scope = rememberCoroutineScope()
+9	    var patient by remember { mutableStateOf<FullPatient?>(null) }
+10	    var error by remember { mutableStateOf<String?>(null) }
+11	
+12	    LaunchedEffect(patientId) {
+13	        scope.launch {
+14	            try {
+15	                patient = if (patientId == -1) {
+16	                    ApiClient.patientApi.getProfile("Bearer $token")
+17	                } else {
+18	                    ApiClient.relativeApi.getFullPatient(patientId, "Bearer $token")
+19	                }
+20	            } catch (e: Exception) {
+21	                error = e.message
+22	            }
+23	        }
+24	    }
+25	
+26	    Scaffold(
+27	        topBar = {
+28	            TopAppBar(
+29	                title = { Text(stringResource(R.string.patient_details)) },
+30	                navigationIcon = {
+31	                    IconButton(onClick = onBack) {
+32	                        Icon(Icons.Default.ArrowBack, contentDescription = stringResource(R.string.back))
+33	                    }
+34	                }
+35	            )
+36	        }
+37	    ) { innerPadding ->
+38	
+39	        LazyColumn(
+40	            modifier = Modifier
+41	                .padding(innerPadding)
+42	                .padding(16.dp)
+43	                .fillMaxSize()
+44	        ) {
+45	            if (error != null) {
+46	                item {
+47	                    Text("${stringResource(R.string.error)}: $error", color = MaterialTheme.colorScheme.error)
+48	                }
+49	                return@LazyColumn
+50	            }
+51	
+52	            patient?.let { p ->
+53	
+54	                item {
+55	                    Section(title = stringResource(R.string.general_info)) {
+56	                        Text("${stringResource(R.string.name)}: ${p.name} ${p.surname}")
+57	                        Text("${stringResource(R.string.email)}: ${p.email}")
+58	                        Text("${stringResource(R.string.birthday)}: ${p.birthday}")
+59	                        Text("${stringResource(R.string.sex)}: ${if (p.sex) stringResource(R.string.female) else stringResource(R.string.male)}")
+60	                    }
+61	                }
+62	
+63	                item {
+64	                    Section(title = stringResource(R.string.diagnoses)) {
+65	                        if (p.diagnoses.isEmpty()) {
+66	                            Text(stringResource(R.string.no_diagnoses))
+67	                        } else {
+68	                            p.diagnoses.forEach { d ->
+69	                                Card(modifier = Modifier.padding(vertical = 4.dp)) {
+70	                                    Column(Modifier.padding(8.dp)) {
+71	                                        Text("${stringResource(R.string.name)}: ${d.name}", style = MaterialTheme.typography.bodyLarge)
+72	                                        Text("${stringResource(R.string.description)}: ${d.description}")
+73	                                        Text("${stringResource(R.string.recommendations)}: ${d.recommendations}")
+74	                                    }
+75	                                }
+76	                            }
+77	                        }
+78	                    }
+79	                }
+80	
+81	                item {
+82	                    Section(title = stringResource(R.string.treatment_plans)) {
+83	                        if (p.treatment_plans.isEmpty()) {
+84	                            Text(stringResource(R.string.no_treatment_plans))
+85	                        } else {
+86	                            p.treatment_plans.forEach { plan ->
+87	                                Card(modifier = Modifier.padding(vertical = 6.dp)) {
+88	                                    Column(Modifier.padding(8.dp)) {
+89	                                        Text("${stringResource(R.string.plan)} ${plan.id}: ${plan.start_date} – ${plan.end_date}")
+90	                                        Text("${stringResource(R.string.doctor)}: ${plan.doctor.name} ${plan.doctor.surname} (${plan.doctor.email})")
+91	
+92	                                        Spacer(Modifier.height(6.dp))
+93	                                        Text("${stringResource(R.string.visits)}:")
+94	                                        plan.visits.forEach { visit ->
+95	                                            Text(" • ${visit.date} — ${visit.reason}")
+96	                                            Text("   ${stringResource(R.string.notes)}: ${visit.notes}")
+97	                                        }
+98	
+99	                                        Spacer(Modifier.height(6.dp))
+100	                                        if (!plan.prescriptions.isNullOrEmpty()) {
+101	                                            Text("${stringResource(R.string.prescriptions)}:")
+102	                                            plan.prescriptions.forEach { presc ->
+103	                                                Text(" • ${presc.medicine.name}: ${presc.dosage} (${presc.frequency})")
+104	                                                Text("   → ${presc.medicine.description}")
+105	                                            }
+106	                                        }
+107	                                    }
+108	                                }
+109	                            }
+110	                        }
+111	                    }
+112	                }
+113	
+114	                item {
+115	                    Spacer(Modifier.height(16.dp))
+116	                    Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
+117	                        Button(onClick = onBack) {
+118	                            Text(stringResource(R.string.back))
+119	                        }
+120	                    }
+121	                }
+122	
+123	            } ?: item {
+124	                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+125	                    CircularProgressIndicator()
+126	                }
+127	            }
+128	        }
+129	    }
+130	}
+
+В.2 Адміністрування бізнес-логіки системи
+
+GitHub репозиторій: https://github.com/NureSerhieienkovaMariia/apz-pzpi-22-7-serhieienkova-mariia/blob/main/Lab3/pzpi-22-7-serhieienkova-mariia-lab3-code/src/pages/AdminPage.vue 
+
+1	<template>
+2	  <div class="admin-container">
+3	    <h1>Admin Dashboard</h1>
+4	
+5	    <div class="admin-actions">
+6	      <button @click="backupDatabase">Backup Database</button>
+7	      <button @click="restoreDatabase">Restore Database</button>
+8	    </div>
+9	
+10	    <div class="admin-section">
+11	      <h2>Patients</h2>
+12	      <table>
+13	        <thead>
+14	          <tr>
+15	            <th>ID</th><th>Name</th><th>Email</th><th>Actions</th>
+16	          </tr>
+17	        </thead>
+18	        <tbody>
+19	          <tr v-for="patient in patients" :key="patient.id">
+20	            <td>{{ patient.id }}</td>
+21	            <td>{{ patient.name }} {{ patient.surname }}</td>
+22	            <td>{{ patient.email }}</td>
+23	            <td><button @click="deletePatient(patient.id)">Delete</button></td>
+24	          </tr>
+25	        </tbody>
+26	      </table>
+27	    </div>
+28	
+29	    <div class="admin-section">
+30	      <h2>Doctors</h2>
+31	      <table>
+32	        <thead>
+33	          <tr>
+34	            <th>ID</th><th>Name</th><th>Email</th><th>Actions</th>
+35	          </tr>
+36	        </thead>
+37	        <tbody>
+38	          <tr v-for="doctor in doctors" :key="doctor.id">
+39	            <td>{{ doctor.id }}</td>
+40	            <td>{{ doctor.name }} {{ doctor.surname }}</td>
+41	            <td>{{ doctor.email }}</td>
+42	            <td><button @click="deleteDoctor(doctor.id)">Delete</button></td>
+43	          </tr>
+44	        </tbody>
+45	      </table>
+46	    </div>
+47	  </div>
+48	</template>
+49	
+50	<script setup>
+51	import { ref, onMounted } from 'vue'
+52	import { getAllPatients, deletePatientById } from '@/api/patients'
+53	import { getAllDoctors, deleteDoctorById } from '@/api/doctors'
+54	
+55	const patients = ref([])
+56	const doctors = ref([])
+57	
+58	const loadData = async () => {
+59	  patients.value = await getAllPatients()
+60	  doctors.value = await getAllDoctors()
+61	}
+62	
+63	const deletePatient = async (id) => {
+64	  await deletePatientById(id)
+65	  await loadData()
+66	}
+67	
+68	const deleteDoctor = async (id) => {
+69	  await deleteDoctorById(id)
+70	  await loadData()
+71	}
+72	
+73	const backupDatabase = () => {
+74	  await backupDBInit(id)
+75	  await loadData()
+76	}
+77	
+78	const restoreDatabase = () => {
+79	  await restoreDB(id)
+80	  await loadData()
+81	}
+
+В.3 Резервне копіювання користувацьких даних
+
+GitHub репозиторій: https://github.com/NureSerhieienkovaMariia/apz-pzpi-22-7-serhieienkova-mariia/blob/main/Lab3/pzpi-22-7-serhieienkova-mariia-lab3-code/src/pages/AdminPage.vue 
+
+1	<template>
+2	  <div class="admin-container">
+3	    <h1>Admin Dashboard</h1>
+4	
+5	    <div class="admin-actions">
+6	      <button @click="backupDatabase">Backup Database</button>
+7	      <button @click="restoreDatabase">Restore Database</button>
+8	    </div>
+9	
+10	<script setup>
+11	import { ref, onMounted } from 'vue'
+12	import { getAllPatients, deletePatientById } from '@/api/patients'
+13	import { getAllDoctors, deleteDoctorById } from '@/api/doctors'
+14	
+15	const patients = ref([])
+16	const doctors = ref([])
+17	
+18	const loadData = async () => {
+19	  patients.value = await getAllPatients()
+20	  doctors.value = await getAllDoctors()
+21	}
+22	const backupDatabase = () => {
+23	  await backupDBInit(id)
+24	  await loadData()
+25	}
+26	
+27	const restoreDatabase = () => {
+28	  await restoreDB(id)
+29	  await loadData()
+30	}
