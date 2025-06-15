@@ -1,1 +1,420 @@
+МІНІСТЕРСТВО ОСВІТИ І НАУКИ УКРАЇНИ ХАРКІВСЬКИЙ НАЦІОНАЛЬНИЙ УНІВЕРСИТЕТ РАДІОЕЛЕКТРОНІКИ
 
+
+Кафедра програмної інженерії
+
+
+
+
+ЗВІТ
+З лабораторної роботи №5
+З дисципліни «Архітектура програмного забезпечення» 
+на тему: «Розгортання програмної системи та демонстрація її роботи»
+
+
+
+
+
+
+
+
+Виконала:   
+ст. гр. ПЗПІ-22-7                                                           
+Сергєєнкова Марія Сергіївна	  Перевірив:             
+  ст.викладач кафедри. ПІ
+  Сокорчук І.П.
+
+
+
+
+
+
+
+Харків 2025
+ 
+1	ІСТОРІЯ ЗМІН
+Зміни в документі нотуються до таблиці 1.1. 	 
+ Таблиця 1.1 – Історія змін 
+№	Дата змін	Версія звіту	Опис змін та виправлень
+1	04.06.2025	0.1	Створено розділ «Завдання»
+2	04.06.2025	0.1	Створено розділ «Опис виконаної роботи»
+3	04.06.2025	0.1	Додано розділ «Висновки»
+4	15.06.2025	0.2	Додано додаток А з посиланням на відеозапис доповіді
+5	15.06.2025	0.2	Додано додаток Б з графічними матеріалами
+6	15.06.2025	0.2	Додано додаток В з програмним кодом
+
+2	ЗАВДАННЯ
+Метою даної лабораторної роботи є розгортання та демонстрація розробленої програмної системи та проведення базового тестування.
+
+
+3	ОПИС ВИКОНАНОЇ РОБОТИ
+Тема проєкту: Програмна система для догляду за літніми людьми. 
+У межах лабораторної роботи було реалізовано повноцінне розгортання програмної системи для догляду за літніми людьми, що включає три основні компоненти: веб-інтерфейс (frontend), серверну частину (backend) та мобільний застосунок. 
+Серверну частину реалізовано мовою Go з використанням фреймворку Gin. Вона забезпечує обробку запитів, зберігання даних у базі PostgreSQL, авторизацію користувачів, а також взаємодію з IoT-пристроями для збору показників здоров’я. Передбачено REST API, який забезпечує взаємодію з усіма клієнтами системи. Для зручності налаштувань і адаптації — параметри зберігаються у файлі .env.
+Веб-інтерфейс реалізовано на фреймворку Vue.js. Інтерфейс адаптований до лікарів. Лікарі можуть авторизуватись або зареєструватись у системі, мають можливість переглядати список пацієнтів та детальну інформацію по кожному з них, також продивлятися сповіщення про критичні показники здоров’я та управляти записами: діагнози, візити, ліки, плани лікування. Дані отримуються з бекенду через REST API.
+Мобільний застосунок для Android реалізовано на мові Kotlin з використанням Jetpack Compose. Інтерфейс адаптований до пацієнтів та родичів або доглядальників. У ньому реалізовано авторизацію, відображення медичних показників, перегляд історії стану, а також нотатки пацієнта. Підключення до серверної частини здійснюється через Retrofit. Інтерфейс підтримує дві мови — українську та англійську. 
+У процесі тестування було перевірено коректну взаємодію всіх частин системи. Сервер отримує дані, обробляє їх і передає клієнтам. Веб- і мобільний клієнти успішно підключаються до API, динамічно відображають інформацію, підтримують різні ролі користувачів і забезпечують зручну взаємодію з системою.
+Відеозапис роботи системи наведено в додатку А. ER-діаграма представлена в додатку Б на рисунку Б.1, структура бази даних – на рисунку Б.2, UML-діаграма прецедентів зображена на рисунку Б.3, UML-діаграма пакетів – на рисунку Б.4, UML-діаграма станів – на рисунку Б.5. У процесі реалізації здійснено математичну обробку прикладних даних (див. додаток В, фрагмент В.1). Логіка адміністрування, представлена у фрагменті В.2. Також реалізовано механізм резервного копіювання даних користувачів (див. додаток В, фрагмент В.3). 
+
+4	ВИСНОВКИ
+У ході виконання лабораторної роботи було реалізовано повноцінну програмну систему для моніторингу здоров’я, що включає серверну частину, веб-інтерфейс і мобільний застосунок. Усі компоненти системи коректно взаємодіють між собою через REST API, забезпечуючи надійний обмін даними та підтримку багаторівневого доступу.
+Серверна частина успішно обробляє вхідні дані, зберігає їх у базі даних та формує відповіді для клієнтських застосунків. Веб-клієнт і мобільний застосунок реалізують зручний інтерфейс для користувачів різних ролей, дозволяючи переглядати медичні показники, нотатки та інші важливі дані.
+Мобільний застосунок протестовано на Android-пристрої, що підтверджує його стабільну роботу та правильну інтеграцію з сервером. Усі компоненти функціонують згідно з вимогами. 
+ДОДАТОК А
+Відеозапис
+
+Відеозапис презентації результатів лабораторної роботи:  
+https://www.youtube.com/watch?v=cK0t_EQUkhQ 
+
+Хронологічний опис відеозапису:
+00:00 – Вступ
+00:17 – Мета лабораторної роботи
+01:26 – Демонстрація роботи серверної частини системи
+14:22 – Демонстрація роботи веб частини системи
+22:04 – Демонстрація роботи мобільної частини системи
+29:27 – Подяка за перегляд 
+ДОДАТОК Б
+Графічні матеріали
+
+ 
+Рисунок Б.1 – ER-діаграма даних
+
+
+ Рисунок Б.2 — Структура бази даних
+
+ 
+Рисунок Б.3 — UML-діаграма прецедентів
+
+ 
+Рисунок Б.4 — UML-діаграма пакетів
+
+ 
+Рисунок Б.5 — UML-діаграма станів
+
+ 
+ДОДАТОК В
+Програмний код
+
+В.1 Математична обробка прикладних даних. Створення повідомлень в застосунку про прийом ліків та прийоми у лікаря
+
+GitHub репозиторій: https://github.com/NureSerhieienkovaMariia/apz-pzpi-22-7-serhieienkova-mariia/blob/main/Lab2/pzpi-22-7-serhieienkova-mariia-lab2-code/notificationscentre/centre.go 
+
+1	//Створення повідомлень в застосунку про прийом ліків та прийоми у лікаря
+2	func (nc *NotificationsCenter) Start() {
+3		defer nc.ticker.Stop()
+4	
+5		for {
+6			select {
+7			case <-nc.ticker.C:
+8				nc.checkVisits()
+9				nc.checkPrescriptions()
+10			}
+11		}
+12	}
+13	
+14	func (nc *NotificationsCenter) checkVisits() {
+15		now := time.Now()
+16		twentyFourHoursLater := now.Add(24 * time.Hour)
+17		twoHoursLater := now.Add(2 * time.Hour)
+18	
+19		visits, err := nc.services.VisitAction.GetAll()
+20		if err != nil {
+21			log.Printf("Error fetching visits: %v", err)
+22			return
+23		}
+24	
+25		for _, visit := range visits {
+26	
+27			treatmentPlan, err := nc.services.TreatmentPlanAction.Get(visit.TreatmentPlanID)
+28			if err != nil {
+29				log.Printf("Error fetching treatment plan for visit ID %d: %v", visit.ID, err)
+30				continue
+31			}
+32	
+33			if visit.Date.After(now) && visit.Date.Before(twentyFourHoursLater) {
+34				nc.createNotification(treatmentPlan.PatientID, "Upcoming Visit", fmt.Sprintf("You have a visit scheduled at %s", visit.Date.Format(time.RFC1123)))
+35			}
+36			if visit.Date.After(now) && visit.Date.Before(twoHoursLater) {
+37				nc.createNotification(treatmentPlan.PatientID, "Visit Reminder", fmt.Sprintf("Your visit is happening soon at %s", visit.Date.Format(time.RFC1123)))
+38			}
+39		}
+40	}
+41	
+42	func (nc *NotificationsCenter) checkPrescriptions() {
+43		now := time.Now()
+44		parser := &FrequencyParser{}
+45	
+46		prescriptions, err := nc.services.PrescriptionAction.GetAll()
+47		if err != nil {
+48			log.Printf("Error fetching prescriptions: %v", err)
+49			return
+50		}
+51	
+52		for _, prescription := range prescriptions {
+53			parsedFrequency, err := parser.Parse(prescription.Frequency)
+54			if err != nil {
+55				log.Printf("Error parsing frequency for prescription ID %d: %v", prescription.ID, err)
+56				continue
+57			}
+58	
+59			medicine, err := nc.services.MedicineAction.Get(prescription.MedicineID)
+60			if err != nil {
+61				log.Printf("Error fetching medicine for prescription ID %d: %v", prescription.ID, err)
+62				continue
+63			}
+64	
+65			treatmentPlan, err := nc.services.TreatmentPlanAction.Get(prescription.TreatmentPlanID)
+66			if err != nil {
+67				log.Printf("Error fetching treatment plan for prescription ID %d: %v", prescription.ID, err)
+68				continue
+69			}
+70	
+71			switch parsedFrequency.Type {
+72			case "at":
+73				if parsedFrequency.Time != nil && now.Hour() == parsedFrequency.Time.Hour() {
+74					nc.createNotification(treatmentPlan.PatientID, "Medication Reminder", fmt.Sprintf("It's time to take your medicine (%s).", medicine.Name))
+75				}
+76			case "every":
+77				if parsedFrequency.Interval != nil {
+78					timeSinceStart := now.Sub(now.Truncate(*parsedFrequency.Interval))
+79					if timeSinceStart < time.Hour {
+80						nc.createNotification(treatmentPlan.PatientID, "Medication Reminder", fmt.Sprintf("It's time to take your medicine (%s).", medicine.Name))
+81					}
+82				}
+83			default:
+84				log.Printf("Unhandled frequency type for prescription ID %d: %s", prescription.ID, parsedFrequency.Type)
+85			}
+86		}
+87	}
+88	
+89	func (nc *NotificationsCenter) createNotification(patientID int, topic, message string) {
+90		notification := structures.PatientNotification{
+91			Timestamp: time.Now(),
+92			PatientID: patientID,
+93			Topic:     topic,
+94			Message:   message,
+95		}
+96		_, err := nc.services.PatientNotificationAction.Create(notification)
+97		if err != nil {
+98			log.Printf("Error creating notification: %v", err)
+99		}
+100	}
+
+1	//Підрахунки допустимих значень показників
+2	func (s *IndicatorsStampActionService) checkIndicators(stamp structures.IndicatorsStamp) string {
+3		var message string
+4	
+5		if stamp.Pulse < 60 || stamp.Pulse > 100 {
+6			if stamp.Pulse < 50 || stamp.Pulse > 110 {
+7				message += "Critical heart rate detected. "
+8			} else {
+9				message += "Warning: Abnormal heart rate detected. "
+10			}
+11		}
+12		if stamp.SystolicBloodPressure < 90 || stamp.SystolicBloodPressure > 120 {
+13			if stamp.SystolicBloodPressure < 80 || stamp.SystolicBloodPressure > 130 {
+14				message += "Critical systolic blood pressure detected. "
+15			} else {
+16				message += "Warning: Abnormal systolic blood pressure detected. "
+17			}
+18		}
+19		if stamp.DiastolicBloodPressure < 60 || stamp.DiastolicBloodPressure > 80 {
+20			if stamp.DiastolicBloodPressure < 50 || stamp.DiastolicBloodPressure > 90 {
+21				message += "Critical diastolic blood pressure detected. "
+22			} else {
+23				message += "Warning: Abnormal diastolic blood pressure detected. "
+24			}
+25		}
+26		if stamp.Temperature < 36.1 || stamp.Temperature > 37.2 {
+27			if stamp.Temperature < 35.5 || stamp.Temperature > 38.0 {
+28				message += "Critical temperature detected. "
+29			} else {
+30				message += "Warning: Abnormal temperature detected. "
+31			}
+32		}
+33	
+34		return message
+35	}
+
+В.2 Адміністрування бізнес-логіки системи
+
+GitHub репозиторій: https://github.com/NureSerhieienkovaMariia/apz-pzpi-22-7-serhieienkova-mariia/blob/main/Lab2/pzpi-22-7-serhieienkova-mariia-lab2-code/server/handler/admin.go 
+
+1	//Приклади обробників ендпоїнтів адміністрування
+2	func (h *Handler) adminDeletePatient(c *gin.Context) {
+3		id := c.Param("id")
+4		intId, err := strconv.Atoi(id)
+5		if err != nil {
+6			newErrorResponse(c, http.StatusInternalServerError, err.Error())
+7			return
+8		}
+9	
+10		err = h.services.PatientAction.Delete(intId)
+11		if err != nil {
+12			newErrorResponse(c, http.StatusInternalServerError, err.Error())
+13			return
+14		}
+15	
+16		c.JSON(http.StatusOK, map[string]interface{}{
+17			"message": "Patient deleted successfully",
+18		})
+19	}
+20	
+21	func (h *Handler) adminUpdatePatient(c *gin.Context) {
+22		id := c.Param("id")
+23		var input structures.Patient
+24		if err := c.BindJSON(&input); err != nil {
+25			newErrorResponse(c, http.StatusBadRequest, "invalid input body")
+26			return
+27		}
+28	
+29		err := h.services.PatientAction.Update(id, input)
+30		if err != nil {
+31			newErrorResponse(c, http.StatusInternalServerError, err.Error())
+32			return
+33		}
+34	
+35		c.JSON(http.StatusOK, map[string]interface{}{
+36			"message": "Patient updated successfully",
+37		})
+38	}
+39	
+40	func (h *Handler) adminDeleteRelative(c *gin.Context) {
+41		id := c.Param("id")
+42	
+43		err := h.services.RelativeAction.Delete(id)
+44		if err != nil {
+45			newErrorResponse(c, http.StatusInternalServerError, err.Error())
+46			return
+47		}
+48	
+49		c.JSON(http.StatusOK, map[string]interface{}{
+50			"message": "Relative deleted successfully",
+51		})
+52	}
+53	
+54	func (h *Handler) adminUpdateRelative(c *gin.Context) {
+55		id := c.Param("id")
+56		var input structures.Relative
+57		if err := c.BindJSON(&input); err != nil {
+58			newErrorResponse(c, http.StatusBadRequest, "invalid input body")
+59			return
+60		}
+61	
+62		err := h.services.RelativeAction.Update(id, input)
+63		if err != nil {
+64			newErrorResponse(c, http.StatusInternalServerError, err.Error())
+65			return
+66		}
+67	
+68		c.JSON(http.StatusOK, map[string]interface{}{
+69			"message": "Relative updated successfully",
+70		})
+71	}
+
+В.3 Резервне копіювання користувацьких даних
+
+GitHub репозиторій: https://github.com/NureSerhieienkovaMariia/apz-pzpi-22-7-serhieienkova-mariia/blob/main/Lab2/pzpi-22-7-serhieienkova-mariia-lab2-code/server/repository/postgres.go 
+
+1	type TableData struct {
+2		TableName string      `json:"table_name"`
+3		Data      interface{} `json:"data"`
+4	}
+5	
+6	func ExportAllDataToJSON(db *sqlx.DB, outputPath string) error {
+7		tables := []string{
+8			relativesTable,
+9			doctorsTable,
+10			adminsTable,
+11			patientsTable,
+12			medicinesTable,
+13			diagnosesTable,
+14			patientMedicineTable,
+15			userPatientsTable,
+16			devicesTable,
+17			indicatorsNotificationsTable,
+18			indicatorsStampsTable,
+19			patientNotesTable,
+20			patientRelativeTable,
+21			prescriptionsTable,
+22			treatmentPlansTable,
+23			visitsTable,
+24			patientsRelativesTable,
+25			patientsDiagnosesTable,
+26			patientNotificationTable,
+27		}
+28	
+29		var allData []TableData
+30	
+31		for _, table := range tables {
+32			var rows []map[string]interface{}
+33			query := fmt.Sprintf("SELECT * FROM %s", table)
+34			if err := db.Select(&rows, query); err != nil {
+35				return fmt.Errorf("failed to fetch data from table %s: %w", table, err)
+36			}
+37			allData = append(allData, TableData{
+38				TableName: table,
+39				Data:      rows,
+40			})
+41		}
+42	
+43		jsonData, err := json.MarshalIndent(allData, "", "  ")
+44		if err != nil {
+45			return fmt.Errorf("failed to marshal data to JSON: %w", err)
+46		}
+47	
+48		file, err := os.Create(outputPath)
+49		if err != nil {
+50			return fmt.Errorf("failed to create output file: %w", err)
+51		}
+52		defer file.Close()
+53	
+54		if _, err := file.Write(jsonData); err != nil {
+55			return fmt.Errorf("failed to write JSON data to file: %w", err)
+56		}
+57	
+58		return nil
+59	}
+60	
+61	func ImportDataFromJSON(db *sqlx.DB, inputPath string) error {
+62		// Read the JSON file
+63		jsonData, err := ioutil.ReadFile(inputPath)
+64		if err != nil {
+65			return fmt.Errorf("failed to read input file: %w", err)
+66		}
+67	
+68		// Parse the JSON data
+69		var allData []TableData
+70		if err := json.Unmarshal(jsonData, &allData); err != nil {
+71			return fmt.Errorf("failed to unmarshal JSON data: %w", err)
+72		}
+73	
+74		// Insert data into each table
+75		for _, tableData := range allData {
+76			for _, row := range tableData.Data.([]interface{}) {
+77				rowMap := row.(map[string]interface{})
+78	
+79				// Build the INSERT query dynamically
+80				columns := []string{}
+81				values := []interface{}{}
+82				placeholders := []string{}
+83				for col, val := range rowMap {
+84					columns = append(columns, col)
+85					values = append(values, val)
+86					placeholders = append(placeholders, fmt.Sprintf("$%d", len(values)))
+87				}
+88	
+89				query := fmt.Sprintf("INSERT INTO %s (%s) VALUES (%s)",
+90					tableData.TableName,
+91					strings.Join(columns, ", "),
+92					strings.Join(placeholders, ", "))
+93	
+94				// Execute the query
+95				if _, err := db.Exec(query, values...); err != nil {
+96					return fmt.Errorf("failed to insert data into table %s: %w", tableData.TableName, err)
+97				}
+98			}
+99		}
+100	
+101		return nil
+102	}
